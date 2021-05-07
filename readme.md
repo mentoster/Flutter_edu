@@ -24,6 +24,10 @@ Here you can find educational projects on flutter that I created during the cour
 ## 📝Projects <a name = "List_of_projects"></a>
 
 1. Test with points
+<p align="center">
+  <a href="" rel="noopener">
+ <img height=200px src="assets\images\test_demo.gif" alt="Project logo"></a>
+</p>
 
 ##
 
