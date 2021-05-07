@@ -32,18 +32,38 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _questionIndex = 0;
+  int _points = 0;
   final List<TestStructure> _questions = [
-    TestStructure("Кто я?", ["Дима", "Дима", "Дима", "Дмитрий"]),
-    TestStructure("Кто ты?", ["Алексей", "Дима", "Дима", "Дмитрий"])
+    TestStructure(
+      "Кто я?",
+      [
+        {"answer": "программист", "points": 4},
+        {"answer": "автор", "points": 6},
+        {"answer": "тестировщик", "points": 3},
+        {"answer": "не тестировщик", "points": 1},
+      ],
+    ),
+    TestStructure(
+      "Кто ты?",
+      [
+        {"answer": "не ты ", "points": 4},
+        {"answer": "я", "points": 6},
+        {"answer": "я не я", "points": 3},
+        {"answer": "вы", "points": 1},
+      ],
+    ),
+    
   ];
-  void _nextQuestion() {
+  void _nextQuestion(int points) {
     setState(() {
+      _points += points;
       ++_questionIndex;
     });
   }
 
   void _retry() {
     setState(() {
+      _points = 0;
       _questionIndex = 0;
     });
   }
@@ -57,6 +77,6 @@ class _MyHomePageState extends State<MyHomePage> {
         body: Center(
             child: _questionIndex < _questions.length
                 ? Test(_questions[_questionIndex], _nextQuestion)
-                : Result(_retry)));
+                : Result(_points, _retry)));
   }
 }

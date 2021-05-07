@@ -2,14 +2,14 @@ import 'package:flutter/cupertino.dart';
 
 class TestStructure {
   final String _question;
-  final List _answers;
+  final List<Map<String, Object>> _answers;
   TestStructure(this._question, this._answers);
 
   String getQuestion() {
     return _question;
   }
 
-  List getAnswers() {
+  List<Map<String, Object>> getAnswers() {
     return _answers;
   }
 }
