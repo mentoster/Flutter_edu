@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:personal_expenses/Colors.dart';
 import 'package:personal_expenses/transaction.dart';
 
 void main() {
@@ -54,22 +55,35 @@ class MyHomePage extends StatelessWidget {
               children: transactions.map((tx) {
                 return Card(
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Container(
-                          margin: EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 15),
-                          decoration: BoxDecoration(
-                              border: Border.all(
-                            color: Colors.black,
-                            width: 2,
-                          )),
-                          padding: EdgeInsets.all(10),
-                          child: Text(tx.amount.toString())),
+                        margin:
+                            EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                          color: AppColors.secondColor,
+                          width: 2,
+                        )),
+                        padding: EdgeInsets.all(10),
+                        child: Text(tx.amount.toString(),
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: AppColors.secondColor,
+                            )),
+                      ),
                       Column(
                         children: <Widget>[
-                          Text(tx.title),
-                          Text(tx.date.toString()),
+                          Text(
+                            tx.title,
+                            style: TextStyle(
+                                fontSize: 14, fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            tx.date.toString(),
+                            style: TextStyle(color: Colors.grey),
+                          ),
                         ],
                       ),
                     ],
