@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:personal_expenses/Colors.dart';
 import 'package:personal_expenses/transaction.dart';
 
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   MyHomePage({Key? key, required this.title}) : super(key: key);
   final String title;
-  final List<Transaction> transactions = [
+  final List<Transaction> _transactions = [
     Transaction(
       't2',
       'Weekly Griceries',
@@ -47,15 +48,43 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
+            Container(
+              width: double.infinity,
+              child: Card(
+                color: Colors.blue,
+                child: Text('CHART!'),
+                elevation: 5,
+              ),
+            ),
             Card(
-              child: Text('Chart'),
+              elevation: 5,
+              child: Container(
+                padding: EdgeInsets.all(10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                    TextField(
+                      decoration: InputDecoration(labelText: 'Title'),
+                    ),
+                    TextField(
+                      decoration: InputDecoration(labelText: 'Amount'),
+                    ),
+                    TextButton(
+                      child: Text(
+                        'Add Transaction',
+                        style: TextStyle(color: AppColors.secondColor),
+                      ),
+                      onPressed: () {},
+                    ),
+                  ],
+                ),
+              ),
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: transactions.map((tx) {
+              children: _transactions.map((tx) {
                 return Card(
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Container(
                         margin:
@@ -66,14 +95,15 @@ class MyHomePage extends StatelessWidget {
                           width: 2,
                         )),
                         padding: EdgeInsets.all(10),
-                        child: Text(tx.amount.toString(),
+                        child: Text('\$${tx.amount}',
                             style: TextStyle(
-                              fontSize: 20,
+                              fontSize: 16,
                               fontWeight: FontWeight.bold,
                               color: AppColors.secondColor,
                             )),
                       ),
                       Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Text(
                             tx.title,
@@ -81,7 +111,7 @@ class MyHomePage extends StatelessWidget {
                                 fontSize: 14, fontWeight: FontWeight.bold),
                           ),
                           Text(
-                            tx.date.toString(),
+                            DateFormat.yMMMd().format(tx.date),
                             style: TextStyle(color: Colors.grey),
                           ),
                         ],
