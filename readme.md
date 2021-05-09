@@ -26,7 +26,12 @@ Here you can find educational projects on flutter that I created during the cour
 1. Test with points
 <p align="center">
   <a href="" rel="noopener">
- <img height=200px src="assets\images\test_demo.gif" alt="Project logo"></a>
+ <img height=200px src="assets\images\1.test_demo.gif" alt="Project logo"></a>
+</p>
+2. Funny facts about height
+<p align="center">
+  <a href="" rel="noopener">
+ <img height=200px src="assets\images\2.height_test_demo.gif" alt="Project logo"></a>
 </p>
 
 ##
