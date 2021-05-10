@@ -14,4 +14,4 @@ jobs:
       uses: ValentinVignal/action-dart-analyze@v0.11
       with:
         fail-on: 'warning'
-        working-directory: './personal_expenses/'
+        working-directory: './personal_expenses'
