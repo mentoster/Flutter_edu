@@ -7,9 +7,6 @@
 
 ---
 
-<p align="center">
- My training in the flutter framework
-</p>
 
 ## 🧭Navigation
 
