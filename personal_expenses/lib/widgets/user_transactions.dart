@@ -9,20 +9,7 @@ class UserTransactions extends StatefulWidget {
 }
 
 class _UserTransactionsState extends State<UserTransactions> {
-  final List<Transaction> _userTransactions = [
-    Transaction(
-      't2',
-      'Weekly Griceries',
-      17.53,
-      DateTime.now(),
-    ),
-    Transaction(
-      't1',
-      'New Shoes',
-      69.99,
-      DateTime.now(),
-    ),
-  ];
+
   void _addNewTransaction(String txTitle, double txAmount) {
     final newTx = Transaction(
       DateTime.now().toString(),
