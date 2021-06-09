@@ -1,12 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:personal_expenses/Colors.dart';
 
 class NewTransaction extends StatelessWidget {
   final Function addTx;
+  final titleController = TextEditingController();
+  final amountController = TextEditingController();
 
-  final _titleController = TextEditingController();
-  final _amountController = TextEditingController();
   NewTransaction(this.addTx);
+
+  void submitData() {
+    final enteredTitle = titleController.text;
+    final enteredAmount = double.parse(amountController.text);
+
+    if (enteredTitle.isEmpty || enteredAmount <= 0) {
+      return;
+    }
+
+    addTx(
+      enteredTitle,
+      enteredAmount,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -18,25 +32,23 @@ class NewTransaction extends StatelessWidget {
           children: <Widget>[
             TextField(
               decoration: InputDecoration(labelText: 'Title'),
-              // onChanged: (value) => titleInput = value,
-              controller: _titleController,
+              controller: titleController,
+              onSubmitted: (_) => submitData(),
+              // onChanged: (val) {
+              //   titleInput = val;
+              // },
             ),
             TextField(
               decoration: InputDecoration(labelText: 'Amount'),
-              // onChanged: (value) => amountInput = value,
-              controller: _amountController,
+              controller: amountController,
+              keyboardType: TextInputType.number,
+              onSubmitted: (_) => submitData(),
+              // onChanged: (val) => amountInput = val,
             ),
-            TextButton(
-              child: Text(
-                'Add Transaction',
-                style: TextStyle(color: AppColors.secondColor),
-              ),
-              onPressed: () {
-                addTx(
-                  _titleController.text,
-                  double.parse(_amountController.text),
-                );
-              },
+            FlatButton(
+              child: Text('Add Transaction'),
+              textColor: Colors.purple,
+              onPressed: submitData,
             ),
           ],
         ),

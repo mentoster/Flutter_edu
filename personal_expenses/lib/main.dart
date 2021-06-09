@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:personal_expenses/models/transaction.dart';
-import 'package:personal_expenses/widgets/new_transaction.dart';
-import 'package:personal_expenses/widgets/user_transactions.dart';
+import 'package:personal_expenses/widgets/transactions_list.dart';
+
+import './widgets/new_transaction.dart';
+import './models/transaction.dart';
 
 void main() => runApp(MyApp());
 
@@ -25,25 +26,25 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _userTransactions = [
     Transaction(
-      't1',
-      'New Shoes',
-      69.99,
-      DateTime.now(),
+      id: 't1',
+      title: 'New Shoes',
+      amount: 69.99,
+      date: DateTime.now(),
     ),
     Transaction(
-      't2',
-      'Weekly Groceries',
-      16.53,
-      DateTime.now(),
+      id: 't2',
+      title: 'Weekly Groceries',
+      amount: 16.53,
+      date: DateTime.now(),
     ),
   ];
 
   void _addNewTransaction(String txTitle, double txAmount) {
     final newTx = Transaction(
-      txTitle,
-      txAmount.toString(), 
-      DateTime.now(),
-      DateTime.now().toString(),
+      title: txTitle,
+      amount: txAmount,
+      date: DateTime.now(),
+      id: DateTime.now().toString(),
     );
 
     setState(() {
