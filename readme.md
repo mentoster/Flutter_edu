@@ -7,7 +7,6 @@
 
 ---
 
-
 ## 🧭Navigation
 
 * [About](#about)
@@ -30,7 +29,11 @@ Here you can find educational projects on flutter that I created during the cour
   <a href="" rel="noopener">
  <img height=200px src="assets\images\2.height_test_demo.gif" alt="Project logo"></a>
 </p>
-
+3. Personal_expenses
+<p align="center">
+  <a href="" rel="noopener">
+ <img height=200px src="assets\images\3.personal_expenses.gif" alt="Project logo"></a>
+</p>
 ##
 
 ## ✍️ Authors <a name = "authors"></a>
