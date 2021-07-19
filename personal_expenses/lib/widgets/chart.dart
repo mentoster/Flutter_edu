@@ -3,7 +3,6 @@ import 'package:intl/intl.dart';
 import 'package:personal_expenses/models/transaction.dart';
 import 'package:personal_expenses/widgets/chart_bar.dart';
 
-
 class Chart extends StatelessWidget {
   final List<Transaction> recentTransactions;
 
